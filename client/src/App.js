@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 import Donate from './components/donate/Donate';
 
-import logo from './logo.svg';
 import './App.css';
  
 class App extends Component {
