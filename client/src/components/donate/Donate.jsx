@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 class Donate extends Component 
 {
     render() 
     {
         return (
             <div className='Donate'>
-                <LoginComponent/>
+                <Router>
+                    <Routes>
+                        <Route path='/' component={LoginComponent}/>
+                        <Route path='/login' component={LoginComponent}/>
+                        <Route path='/login' component={WelcomeComponent}/>
+                    </Routes>
+                </Router>
             </div>
         )
+    }
+}
+
+class WelcomeComponent extends Component 
+{
+    render()
+    {
+        return <div>Welcome!</div>
     }
 }
 
