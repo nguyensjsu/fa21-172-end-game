@@ -54,32 +54,14 @@ class LoginComponent extends Component
     {
         return (
             <div>
-                <AlertLoginFailed loginFailed={this.state.loginFailed}/>
-                <AlertLoginSuccess loginSuccess={this.state.loginSuccess}/>
+                {this.state.loginFailed && <div>Invalid Credentials</div>}
+                {this.state.loginSuccess && <div>Login Successful</div>}
                 Username: <input type='text' name='username' value={this.state.username} onChange={this.handleChange}/>
                 Password: <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
                 <button onClick={this.loginClicked}>Login</button>
             </div>
         )
     }
-}
-
-function AlertLoginFailed(props) 
-{
-    if (props.loginFailed)
-    {
-        return <div>Invalid Credentials</div>
-    }
-    return null
-}
-
-function AlertLoginSuccess(props) 
-{
-    if (props.loginSuccess)
-    {
-        return <div>Login Successful</div>
-    }
-    return null
 }
 
 export default Donate
