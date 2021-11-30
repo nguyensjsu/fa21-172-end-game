@@ -37,7 +37,8 @@ import org.springframework.beans.factory.annotation.Value;
 @Slf4j
 @Controller
 @RequestMapping("/")
-public class PaymentsController {  
+public class PaymentsController 
+{  
     
     @Value("${cybersource.apihost}") String apiHost;
     @Value("${cybersource.merchantkeyid}") String merchantKeyId;
@@ -155,11 +156,9 @@ public class PaymentsController {
 
 
     @GetMapping
-    public String getAction( @ModelAttribute("command") PaymentsCommand command, 
-                            Model model) {
-
+    public String getAction( @ModelAttribute("command") PaymentsCommand command, Model model) 
+    {
         return "creditcards" ;
-
     }
 
     @PostMapping

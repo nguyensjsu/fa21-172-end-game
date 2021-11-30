@@ -23,7 +23,8 @@ import javax.validation.constraints.Size;
 @Table(name="Payments")
 @Data
 @RequiredArgsConstructor
-class PaymentsCommand {
+class PaymentsCommand 
+{
 
     private @Id @GeneratedValue Long id;
 
@@ -50,40 +51,52 @@ class PaymentsCommand {
     private String captureId;
     private String captureStatus;
 
-    public String firstname() {
+    public String firstname() 
+    {
         return firstname;
     }
-    public String lastname() {
+    public String lastname() 
+    {
         return lastname;
     }
-    public String address() {
+    public String address() 
+    {
         return address;
     }
-    public String city() {
+    public String city() 
+    {
         return city;
     }
-    public String state() {
+    public String state() 
+    {
         return state;
     }
-    public String zip() {
+    public String zip() 
+    {
         return zip;
     }
-    public String phone() {
+    public String phone() 
+    {
         return phone;
     }
-    public String cardnum() {
+    public String cardnum() 
+    {
         return cardnum;
     }
-    public String cardexpmon() {
+    public String cardexpmon() 
+    {
         return cardexpmon;
     }
-    public String cardexpyear() {
+    public String cardexpyear() 
+    {
         return cardexpyear;
     }
-    public String cardcvv() {
+    public String cardcvv() 
+    {
         return cardcvv;
     }
-    public String email() {
+    public String email() 
+    {
         return email;
     }
 
