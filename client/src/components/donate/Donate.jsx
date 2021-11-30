@@ -8,9 +8,10 @@ class Donate extends Component
             <div className='Donate'>
                 <Router>
                     <Routes>
-                        <Route path='/' component={LoginComponent}/>
-                        <Route path='/login' component={LoginComponent}/>
-                        <Route path='/login' component={WelcomeComponent}/>
+                        <Route path='/' element={<LoginComponent />}/>
+                        <Route path='/login' element={<LoginComponent />}/>
+                        <Route path='/welcome/*' element={<WelcomeComponent />}/>
+                        <Route path='*' element={ <ErrorComponent /> } />
                     </Routes>
                 </Router>
             </div>
@@ -24,6 +25,11 @@ class WelcomeComponent extends Component
     {
         return <div>Welcome!</div>
     }
+}
+
+function ErrorComponent() 
+{
+    return <div>Error! Invalid page.</div>
 }
 
 class LoginComponent extends Component 
