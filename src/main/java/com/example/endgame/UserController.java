@@ -35,13 +35,14 @@ public class UserController
         return repository.save(newUser);
     }
 
-    // Get a single user
+    // Get a specific user by id
     @GetMapping("/users/{id}")
     User one(@PathVariable Long id) 
     {
         return repository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
     }
 
+    // Update a user, Reset Password implementation(?)
     @PutMapping("/users/{id}")
     User replaceUser(@RequestBody User newUser, @PathVariable Long id) 
     {
@@ -58,6 +59,7 @@ public class UserController
         });
     }
 
+    // Delete user
     @DeleteMapping("/users/{id}")
     void deleteEmployee(@PathVariable Long id) 
     {

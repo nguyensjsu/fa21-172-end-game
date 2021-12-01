@@ -1,5 +1,6 @@
 package com.example.endgame;
 
+import java.util.Objects;
 import javax.persistence.*;
  
 @Entity
@@ -20,7 +21,9 @@ public class User
     private String userName;
      
     User()
-    {}
+    {
+        
+    }
 
     User(String email, String password, String userName) 
     {
@@ -67,5 +70,33 @@ public class User
     public void setUserName(String userName) 
     {
         this.userName = userName;
+    }
+
+    @Override
+    public boolean equals(Object o) 
+    {
+        if (this == o)
+        {
+            return true;
+        }
+        
+        if (!(o instanceof User))
+        {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(this.id, user.id) && Objects.equals(this.email, user.email) && Objects.equals(this.password, user.password) && Objects.equals(this.userName, user.userName);
+    }
+  
+    @Override
+    public int hashCode() 
+    {
+        return Objects.hash(this.id, this.email, this.password, this.userName);
+    }
+  
+    @Override
+    public String toString() 
+    {
+        return "User{" + "id=" + this.id + ", email='" + this.email + '\'' + ", password='" + this.password + '\'' + this.userName + '\'' + '}';
     }
 }
