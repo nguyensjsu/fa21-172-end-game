@@ -4,8 +4,8 @@ import javax.persistence.*;
  
 @Entity
 @Table(name = "users")
-public class User {
-     
+public class User 
+{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
@@ -22,14 +22,15 @@ public class User {
     User()
     {}
 
-    User(String email, String password, String userName) {
-
+    User(String email, String password, String userName) 
+    {
         this.email = email;
         this.password = password;
         this.userName = userName;
-      }
+    }
 
-    public Long getId() {
+    public Long getId() 
+    {
         return this.id;
     }
 
@@ -38,27 +39,33 @@ public class User {
         this.id = id;
     }
     
-    public String getEmail() {
+    public String getEmail() 
+    {
         return email;
     }
     
-    public void setEmail(String email) {
+    public void setEmail(String email) 
+    {
         this.email = email;
     }
 
-    public String getPassword() {
+    public String getPassword() 
+    {
         return password;
     }
     
-    public void setPassword(String password) {
+    public void setPassword(String password) 
+    {
         this.password = password;
     }
 
-    public String getUserName() {
+    public String getUserName() 
+    {
         return userName;
     }
     
-    public void setUserName(String userName) {
+    public void setUserName(String userName) 
+    {
         this.userName = userName;
     }
 }
