@@ -24,5 +24,45 @@ import org.springframework.lang.Nullable;
 @RestController
 public class CharityOrderController 
 {
+    private final CharityOrderRepository repository;
+
+    class Message
+    {
+        private String status;
+
+        public String getStatus()
+        {
+            return status;
+        }
+
+        public void setStatus(String msg)
+        {
+            status = msg;
+        }
+    }
+
+    private HashMap<String, CharityOrder> orders = new HashMap<>();
+
+    public CharityOrderController(CharityOrderRepository repository)
+    {
+        this.repository = repository;
+    }
+
+    @GetMapping("/orders")
+    List<CharityOrder> all()
+    {
+        return repository.findAll();
+    }
+
+    @DeleteMapping("/orders")
+    Message deleteAll()
+    {
+        repository.deleteAllInBatch();
+        orders.clear();
+        Message msg = new Message();
+        msg.setStatus("All Charity Orders Cleared!");
+        return msg;
+    }
+
     
 }
