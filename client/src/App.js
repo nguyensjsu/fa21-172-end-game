@@ -1,16 +1,14 @@
-// export default (doesn't need {}), { export } <- needs {}
-import React, { Component } from 'react';
+import React from 'react';
 
 import './App.css';
  
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        
-      </div>
-    );
-  }
+function App() 
+{
+  return (
+    <div className="App">
+      Hello React
+    </div>
+  );
 }
 
 
