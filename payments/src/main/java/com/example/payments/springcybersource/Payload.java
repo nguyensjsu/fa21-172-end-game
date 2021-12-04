@@ -1,4 +1,4 @@
-package com.example.springcybersource;
+package com.example.payments.springcybersource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

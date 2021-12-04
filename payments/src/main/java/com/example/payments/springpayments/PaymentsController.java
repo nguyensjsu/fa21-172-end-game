@@ -1,4 +1,4 @@
-package com.example.springpayments;
+package com.example.payments.springpayments;
 
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +31,7 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.Getter;
 import lombok.Setter;
 
-import com.example.springcybersource.*;
+import com.example.payments.springcybersource.*;
 import org.springframework.beans.factory.annotation.Value;
 
 @Slf4j

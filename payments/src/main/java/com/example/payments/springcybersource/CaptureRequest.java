@@ -1,4 +1,4 @@
-package com.example.springcybersource;
+package com.example.payments.springcybersource;
 
 public class CaptureRequest extends Payload {
 

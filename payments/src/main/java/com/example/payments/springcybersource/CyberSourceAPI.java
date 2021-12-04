@@ -1,4 +1,4 @@
-package com.example.springcybersource;
+package com.example.payments.springcybersource;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

@@ -1,4 +1,4 @@
-package com.example.springpayments;
+package com.example.payments.springpayments;
 
 import java.util.Objects;
 import javax.persistence.Entity;
