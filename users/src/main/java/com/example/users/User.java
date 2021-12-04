@@ -1,7 +1,9 @@
-package com.example.endgame;
+package com.example.users;
 
 import java.util.Objects;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
  
 @Entity
 @Table(name = "users")
@@ -25,14 +27,16 @@ public class User
     {
 
     }
+    */
 
-    User(String email, String password, String userName) 
+    public User(String email, String password, String userName) 
     {
+        super();
         this.email = email;
         this.password = password;
         this.userName = userName;
     }
-    */
+
 
     public Long getId() 
     {

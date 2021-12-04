@@ -1,8 +1,6 @@
-package com.example.endgame;
+package com.example.users;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.example.endgame.User;
 
 public interface UserRepository extends JpaRepository<User, Long> 
 {

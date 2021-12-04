@@ -1,4 +1,4 @@
-package com.example.endgame;
+package com.example.users;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
