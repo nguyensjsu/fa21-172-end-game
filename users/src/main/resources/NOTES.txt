@@ -10,3 +10,12 @@
    6.  grant all on db_example.* to '&username'@'%'; -- Gives all privileges to the &username on the newly created database
    7.  revoke all on db_example.* from '&username'@'%'; -- Removes all privileges from &username
    8.  grant select, insert, delete, update on &database.* to '&username'@'%'; -- Grants some privileges to &username in &database 
+
+- MAPPINGS-
+-- UserController --
+    @RequestMapping:    /users
+        @DeleteMapping:           /{id}
+        @GetMapping:              /all
+        @GetMapping:              /{id}
+        @PostMapping:             /add
+        @PutMapping:              /{id}

@@ -3,6 +3,7 @@ package com.example.users;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController // This means that this class is a RestController
 @RequestMapping("/users") // This means URL's start with / (after Application path)
 public class UserController 
@@ -37,28 +39,31 @@ public class UserController
         // This returns a JSON or XML with the users
         return repository.findAll();
     }
-
+    /*
     // Add a new user
     @PostMapping("/add") 
-    public @ResponseBody String addNewUser (@RequestParam String userName, @RequestParam String email, @RequestParam String password) {
+    public @ResponseBody User addNewUser (  @RequestBody User newUser, 
+                                            @RequestParam String userName, 
+                                            @RequestParam String email, 
+                                            @RequestParam String password) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
         User n = new User();
         n.setUserName(userName);
         n.setEmail(email);
         n.setPassword(password);
-        repository.save(n);
-        return "Saved";
+        //repository.save(n);
+        return repository.save(n);
     }
-
-    /*
+    */
+    
     // Post a new user
-    @PostMapping("/users")
+    @PostMapping("/add")
     User newUser(@RequestBody User newUser) 
     {
         return repository.save(newUser);
     }
-    */
+    
 
     // Get a specific user by id
     @GetMapping("/{id}")

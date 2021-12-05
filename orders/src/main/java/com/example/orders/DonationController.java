@@ -1,11 +1,13 @@
 package com.example.orders;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +21,8 @@ import org.springframework.hateoas.mediatype.problem.Problem;
 
 import java.util.List;
 import java.util.stream.Collectors;
-//@RequestMapping("/_NAME OF PATH_") // 
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/donations")
 @RestController
 public class DonationController 
 {
@@ -33,7 +36,7 @@ public class DonationController
     }
     
     // Get all donations
-    @GetMapping("/donations")
+    @GetMapping("/all")
     CollectionModel<EntityModel<Donation>> all() 
     {
         List<EntityModel<Donation>> donations = donationRepository.findAll().stream().map(assembler::toModel).collect(Collectors.toList());
@@ -42,7 +45,7 @@ public class DonationController
     }
     
     // Get a specific donation by id
-    @GetMapping("/donations/{id}")
+    @GetMapping("/{id}")
     EntityModel<Donation> one(@PathVariable Long id) 
     {
         Donation donation = donationRepository.findById(id).orElseThrow(() -> new DonationNotFoundException(id));
@@ -51,7 +54,7 @@ public class DonationController
     }
     
     // Post a new donation
-    @PostMapping("/donations")
+    @PostMapping("/add")
     ResponseEntity<EntityModel<Donation>> newDonation(@RequestBody Donation donation) 
     {
         donation.setStatus(Status.IN_PROGRESS);
@@ -61,7 +64,7 @@ public class DonationController
     }
     
     // Cancel a specific donation by id
-    @DeleteMapping("/donations/{id}/cancel")
+    @DeleteMapping("/{id}/cancel")
     ResponseEntity<?> cancel(@PathVariable Long id) 
     {
         Donation donation = donationRepository.findById(id).orElseThrow(() -> new DonationNotFoundException(id));
@@ -81,7 +84,7 @@ public class DonationController
     }
     
     // Complete an id specific donation
-    @PutMapping("/donations/{id}/complete")
+    @PutMapping("/{id}/complete")
     ResponseEntity<?> complete(@PathVariable Long id) 
     {
         Donation donation = donationRepository.findById(id).orElseThrow(() -> new DonationNotFoundException(id));
