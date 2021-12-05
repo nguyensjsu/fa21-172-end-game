@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: orders
+  namespace: default
+  labels:
+    name: orders
+spec:
+  containers:
+    - image: anthonynguyenthanh/orders:v1
+      name: orders
+      ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP

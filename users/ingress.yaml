@@ -1,0 +1,9 @@
+apiVersion: "extensions/v1beta1"
+kind: "Ingress"
+metadata:
+  name: "users-ingress"
+  namespace: "default"
+spec:
+  backend:
+    serviceName: "users-service"
+    servicePort: 8080

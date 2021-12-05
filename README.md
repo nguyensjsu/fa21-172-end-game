@@ -48,6 +48,7 @@ Database & Middleware\
 <h2>Week 1</h2>
 
 <h3>Anthony Nguyen</h3>
+Contacted teammates in order to establish group and create a design for the project
 
 <h2>Week 2</h2>
 
@@ -59,7 +60,7 @@ Set up repository, Implemented Spring payments and Cybersource
 <h3>Anthony Nguyen</h3>
 Implemented Users, Orders, and set up client frontend
 
-Organized the application
+Organized the application and updated journal
 
 <h2>Week 4</h2>
 
