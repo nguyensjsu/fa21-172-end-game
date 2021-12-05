@@ -8,9 +8,9 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
- 
-@Entity
-@Table(name = "users")
+
+@Entity // Use 
+@Table(name = "accounts")
 public class User 
 {
     @Id
@@ -30,7 +30,7 @@ public class User
     {
 
     }
-
+    // Constructor for user
     public User(String email, String password, String userName) 
     {
         super();
@@ -93,7 +93,10 @@ public class User
             return false;
         }
         User user = (User) o;
-        return Objects.equals(this.id, user.id) && Objects.equals(this.email, user.email) && Objects.equals(this.password, user.password) && Objects.equals(this.userName, user.userName);
+        return Objects.equals(this.id, user.id) 
+        && Objects.equals(this.email, user.email) 
+        && Objects.equals(this.password, user.password) 
+        && Objects.equals(this.userName, user.userName);
     }
   
     @Override
@@ -105,6 +108,7 @@ public class User
     @Override
     public String toString() 
     {
-        return "User{" + "id=" + this.id + ", email='" + this.email + '\'' + ", password='" + this.password + '\'' + this.userName + '\'' + '}';
+        return "User{" + "id=" + this.id + ", email='" + this.email 
+        + '\'' + ", password='" + this.password + '\'' + this.userName + '\'' + '}';
     }
 }
