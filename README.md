@@ -52,12 +52,17 @@ Database & Middleware
 <h2>Week 2</h2>
 
 <h3>Anthony Nguyen</h3>
+Set up repository, Implemented Spring payments and Cybersource
 
 <h2>Week 3</h2>
 
 <h3>Anthony Nguyen</h3>
+Implemented Users, Orders, and set up client frontend
+
+Organized the application
 
 <h2>Week 4</h2>
 
 <h3>Anthony Nguyen</h3>
+
 
