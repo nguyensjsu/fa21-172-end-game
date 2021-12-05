@@ -8,40 +8,37 @@ This team's project will be a donation web application that allows users to sign
 
 <h2>Functional Requirements</h2>
 
-<h3>
 Front Office Portal
 
 Back Office Portal
 
-REST APIs
-    Users
-    Orders
-    Payments
-</h3>
+REST APIs\
+    Users\
+    Orders\
+    Payments\
+
 
 <h2>Technical Requirements</h2>
 
-<h3>
-Java Spring
-    Spring MVC
-    Spring JPA
-Docker Compose
-Google's Cloud VM's and/or Kubernetes Engine
-Github
+Java Spring\
+    Spring MVC\
+    Spring JPA\
+Docker Compose\
+Google's Cloud VM's and/or Kubernetes Engine\
+Github\
 
-Front End 
-    Node.js
-    Javascript/React
+Front End \
+    Node.js\
+    Javascript/React\
 
-Development Tools
-    Gradle 5.6
-    JDK 11
+Development Tools\
+    Gradle 5.6\
+    JDK 11\
 
-Database & Middleware
-    MySQL Database 8.0
-    RabbitMQ
-    Kong API Gateway
-</h3>
+Database & Middleware\
+    MySQL Database 8.0\
+    RabbitMQ\
+    Kong API Gateway\
 
 <h1>Individual Team Member's Journal with Weekly Status Reports</h1>
 
