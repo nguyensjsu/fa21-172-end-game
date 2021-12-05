@@ -19,7 +19,7 @@ import org.springframework.hateoas.mediatype.problem.Problem;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+//@RequestMapping("/_NAME OF PATH_") // 
 @RestController
 public class DonationController 
 {
