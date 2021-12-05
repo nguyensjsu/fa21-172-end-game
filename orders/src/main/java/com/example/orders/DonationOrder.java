@@ -16,8 +16,8 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 @Entity
-@Table(name = "CHARITY_ORDER")
-class CharityOrder
+@Table(name = "DONATION_ORDER")
+class DonationOrder
 {
     private @Id @GeneratedValue Long id;
 
@@ -26,7 +26,7 @@ class CharityOrder
     private String notes;
     private double total;
 
-    CharityOrder() 
+    DonationOrder() 
     {
 
     }

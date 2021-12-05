@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.lang.Nullable;
 
 @RestController
-public class CharityOrderController 
+public class DonationOrderController 
 {
-    private final CharityOrderRepository repository;
+    private final DonationOrderRepository repository;
 
     class Message
     {
@@ -41,15 +41,15 @@ public class CharityOrderController
         }
     }
 
-    private HashMap<String, CharityOrder> orders = new HashMap<>();
+    private HashMap<String, DonationOrder> orders = new HashMap<>();
 
-    public CharityOrderController(CharityOrderRepository repository)
+    public DonationOrderController(DonationOrderRepository repository)
     {
         this.repository = repository;
     }
 
     @GetMapping("/orders")
-    List<CharityOrder> all()
+    List<DonationOrder> all()
     {
         return repository.findAll();
     }
@@ -60,7 +60,7 @@ public class CharityOrderController
         repository.deleteAllInBatch();
         orders.clear();
         Message msg = new Message();
-        msg.setStatus("All Charity Orders Cleared!");
+        msg.setStatus("All Donation Orders Cleared!");
         return msg;
     }
 
