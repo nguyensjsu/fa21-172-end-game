@@ -15,7 +15,7 @@ jar:
 
 run: jar
 	echo Starting Spring at:  http://localhost:8080
-	java -jar build/libs/users.jar
+	java -jar build/libs/users-1.0.jar
 
 # MySQL DB
 

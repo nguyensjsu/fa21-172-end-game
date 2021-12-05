@@ -15,6 +15,7 @@ import javax.persistence.Index;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+@Data
 @Entity
 @Table(name = "DONATION_ORDER")
 class DonationOrder
@@ -29,30 +30,5 @@ class DonationOrder
     DonationOrder() 
     {
 
-    }
-
-    public String getStatus()
-    {
-        return this.status;
-    }
-    public String getTier()
-    {
-        return this.tier;
-    }
-    public String getNotes()
-    {
-        return this.notes;
-    }
-    public Double getTotal()
-    {
-        return this.total;
-    }
-    public void setStatus(String status) 
-    {
-        this.status = status;
-    }
-    public void setTotal(Double total) 
-    {
-        this.total = total;
     }
 }

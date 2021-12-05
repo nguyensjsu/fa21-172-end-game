@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "donations")
 public class Donation 
@@ -24,36 +27,6 @@ public class Donation
     Donation(String description, Status status) 
     {
         this.description = description;
-        this.status = status;
-    }
-
-    public Long getId() 
-    {
-        return this.id;
-    }
-
-    public String getDescription() 
-    {
-        return this.description;
-    }
-
-    public Status getStatus() 
-    {
-        return this.status;
-    }
-
-    public void setId(Long id) 
-    {
-        this.id = id;
-    }
-
-    public void setDescription(String description) 
-    {
-        this.description = description;
-    }
-
-    public void setStatus(Status status) 
-    {
         this.status = status;
     }
 

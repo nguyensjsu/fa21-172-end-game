@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,8 +23,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.lang.Nullable;
 
 @RestController
+@RequestMapping("/donation")
 public class DonationOrderController 
 {
+    @Autowired
     private final DonationOrderRepository repository;
 
     class Message
@@ -48,13 +51,13 @@ public class DonationOrderController
         this.repository = repository;
     }
 
-    @GetMapping("/orders")
+    @GetMapping("/all")
     List<DonationOrder> all()
     {
         return repository.findAll();
     }
 
-    @DeleteMapping("/orders")
+    @DeleteMapping("/test")
     Message deleteAll()
     {
         repository.deleteAllInBatch();
