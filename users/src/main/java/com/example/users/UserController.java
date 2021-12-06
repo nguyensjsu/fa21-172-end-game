@@ -4,12 +4,8 @@ import java.rmi.ServerException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.http.ResponseEntity;
-=======
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
->>>>>>> 6b911defbf045cccccc0481e7b4dfaf49ebc848a
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

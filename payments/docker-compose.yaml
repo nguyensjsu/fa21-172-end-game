@@ -16,7 +16,7 @@ services:
       MYSQL_ROOT_PASSWORD: "cmpe172"
     restart: always     
     payments:
-     image: spring-payments
+     image: users #
      depends_on:
      - mysql
      volumes:
