@@ -3,6 +3,7 @@ package com.example.users;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+//import org.springframework.web.server.ResponseStatusException;
+//import javax.servlet.http.HttpServletResponse;
+//import org.springframework.http.HttpStatus;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController // This means that this class is a RestController
@@ -65,11 +70,19 @@ public class UserController
     }
     
 
-    // Get a specific user by id
-    @GetMapping("/{id}")
-    User one(@PathVariable Long id) 
+    // Login a user
+    @PostMapping("/login")
+    String loginUser(@RequestBody User newUser) 
     {
-        return repository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
+        User user = repository.findByUserName(newUser.getUserName());
+        if(user.getPassword().equals(newUser.getPassword()))
+        {
+            return "login";
+        }
+        else
+        {
+            return "error";
+        }
     }
 
     // Update a user, Reset Password implementation(?)
