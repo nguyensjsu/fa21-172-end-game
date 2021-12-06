@@ -4,11 +4,8 @@ import java.rmi.ServerException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import java.util.HashSet;
 import org.springframework.http.ResponseEntity;
-=======
->>>>>>> 5f91a27df107752134e812bd253a2e3949085bf4
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
