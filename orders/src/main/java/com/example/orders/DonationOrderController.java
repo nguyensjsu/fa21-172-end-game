@@ -35,15 +35,9 @@ public class DonationOrderController
     {
         private String status;
 
-        public String getStatus()
-        {
-            return status;
-        }
+        public String getStatus()   {return status;}
 
-        public void setStatus(String msg)
-        {
-            status = msg;
-        }
+        public void setStatus(String msg)   {status = msg;}
     }
 
     private HashMap<String, DonationOrder> orders = new HashMap<>();
@@ -83,7 +77,7 @@ public class DonationOrderController
         if(active != null){
             System.out.println("Place Donation (Reg ID = " + regid + " ) => " + active);
             if(active.getStatus().equals("Ready for Payment.")){
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Active Donation Exists!");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Active Donation Transaction Exists!");
             }
         }
         // set price

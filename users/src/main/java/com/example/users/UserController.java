@@ -1,9 +1,15 @@
 package com.example.users;
 
+import java.rmi.ServerException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.http.ResponseEntity;
+=======
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+>>>>>>> 6b911defbf045cccccc0481e7b4dfaf49ebc848a
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,6 +75,24 @@ public class UserController
         return repository.save(newUser);
     }
     
+    // User login validation
+    @GetMapping("/")
+    String getUser(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) throws ServerException{
+        User user = repository.findByUserName(userName);
+        HttpHeaders responseHeaders = new HttpHeaders();
+        if (user == null){
+            responseHeaders.set("status", HttpStatus.NOT_FOUND + "");
+        }
+        else if(user.getPassword().equals(password)){
+            responseHeaders.set("status", HttpStatus.OK + "");
+        }
+        else{
+            responseHeaders.set("status", HttpStatus.UNAUTHORIZED + "");
+
+        }
+        return responseHeaders.toString();
+    }
+
 
     // Login a user
     @PostMapping("/login")
