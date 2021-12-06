@@ -39,21 +39,21 @@
                             <label class="control-label" for="userName">
                                 User Name
                             </label>
-                            <input id="userName" class="form-control" th:field="*{userName}" required autofocus="autofocus"/>
+                            <input id="userName" class="form-control" field="*{userName}" name="userName" required autofocus="autofocus"/>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="email">
                                 Email
                             </label>
-                            <input id="email" class="form-control" th:field="*{email}" required autofocus="autofocus"/>
+                            <input id="email" class="form-control" field="*{email}" email="email" required autofocus="autofocus"/>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="password">
                                 Password
                             </label>
-                            <input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus"/>
+                            <input id="password" class="form-control" type="password" field="*{password}" password="password" required autofocus="autofocus"/>
                         </div>
                         
                         <div class="form-group">
