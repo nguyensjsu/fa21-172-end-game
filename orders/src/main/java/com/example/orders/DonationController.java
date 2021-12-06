@@ -100,6 +100,6 @@ public class DonationController
             .header(HttpHeaders.CONTENT_TYPE, MediaTypes.HTTP_PROBLEM_DETAILS_JSON_VALUE) //
             .body(Problem.create() //
             .withTitle("Method not allowed") //
-            .withDetail("You can't complete an donation that is in the " + donation.getStatus() + " status"));
+            .withDetail("You can't complete a donation that is in the " + donation.getStatus() + " status"));
     }
 }
