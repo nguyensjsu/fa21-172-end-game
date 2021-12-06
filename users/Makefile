@@ -24,7 +24,8 @@ mysql:
 
 mysql-shell:
 	docker exec -it mysql bash
-
+api:
+	docker run -d --name users-api --network kong-network -td users
 # Docker
 
 docker-build: jar

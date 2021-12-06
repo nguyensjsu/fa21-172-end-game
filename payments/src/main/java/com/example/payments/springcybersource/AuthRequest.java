@@ -18,7 +18,4 @@ public class AuthRequest extends Payload {
     public String cardExpMonth ;
     public String cardExpYear ;
     public String cardType ;
-
 }
-
-

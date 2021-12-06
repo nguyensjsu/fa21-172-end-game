@@ -200,8 +200,6 @@ public class CyberSourceAPI {
 
     }
 
-
-
     // HTTP GET request
     private String sendGet(String url) throws Exception {
         /* HTTP connection */

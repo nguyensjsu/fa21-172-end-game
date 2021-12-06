@@ -17,18 +17,15 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "DONATION_ORDER")
-class DonationOrder
+@Table(indexes=@Index(name = "DONATION_ORDER", columnList = "id"))
+@RequiredArgsConstructor
+public class DonationOrder
 {
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
 
-    private String status;
-    private String tier;
-    private String notes;
-    private double total;
+    @Column(nullable=true)      private String notes;
+    @Column(nullable=false)     private String tier;
+    @Column(nullable=false)     private double total;
+                                private String status;
+}                           
 
-    DonationOrder() 
-    {
-
-    }
-}

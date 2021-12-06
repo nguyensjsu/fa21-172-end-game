@@ -8,4 +8,3 @@ public class CaptureRequest extends Payload {
     public String transactionCurrency ;
 
 }
-

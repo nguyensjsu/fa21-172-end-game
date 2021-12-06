@@ -41,4 +41,3 @@ public class CaptureResponse extends Payload {
     }
 
 }
-

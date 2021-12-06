@@ -39,10 +39,10 @@ import org.springframework.beans.factory.annotation.Value;
 @RequestMapping("/")
 public class PaymentsController {  
     
-    @Value("${cybersource.apihost}") String apiHost;
-    @Value("${cybersource.merchantkeyid}") String merchantKeyId;
-    @Value("${cybersource.merchantsecretkey}") String merchantsecretKey;
-    @Value("${cybersource.merchantid}") String merchantId;
+    @Value("${cybersource.apihost}") private String apiHost;
+    @Value("${cybersource.merchantkeyid}") private String merchantKeyId;
+    @Value("${cybersource.merchantsecretkey}") private String merchantsecretKey;
+    @Value("${cybersource.merchantid}") private String merchantId;
 
     private CyberSourceAPI api = new CyberSourceAPI();
 
@@ -122,7 +122,6 @@ public class PaymentsController {
     @Autowired
     private PaymentsCommandRepository repository;
 
-    @Getter
     @Setter
     class Message 
     {
@@ -152,7 +151,6 @@ public class PaymentsController {
             }
         }
     }
-
 
     @GetMapping
     public String getAction( @ModelAttribute("command") PaymentsCommand command, 

@@ -17,6 +17,13 @@ run: jar
 	echo Starting Spring at:  http://localhost:8080
 	java -jar build/libs/orders-1.0.jar
 
+# Create Kong Docker Network
+kong-network:
+	docker network create --driver bridge kong-network
+	docker network inspect kong-network
+# Run API in Docker
+api:
+	docker run -d --name donations-api --network kong-network -td donations
 # MySQL DB
 
 mysql:
@@ -28,7 +35,7 @@ mysql-shell:
 # Docker
 
 docker-build: jar
-	docker build -t orders .
+	docker build -t donations .
 	docker images
 
 orders-network:

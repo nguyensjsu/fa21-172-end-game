@@ -40,9 +40,6 @@ public class AuthResponse extends Payload {
     }  
 
 }
-
-
-
 // Auth Response: {"id":"6181562114716109903002","status":"AUTHORIZED","reconciliationId":"70073664SN5UVB3H"}
 // Capture Response: {"id":"6181562121596671603003","status":"PENDING","reconciliationId":"70073664SN5UVB3H"}
 // Auth Response: {"id":"6181559647146109603002","status":"INVALID_REQUEST","reconciliationId":null}
