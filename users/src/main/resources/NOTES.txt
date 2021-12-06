@@ -10,7 +10,13 @@
    6.  grant all on db_example.* to '&username'@'%'; -- Gives all privileges to the &username on the newly created database
    7.  revoke all on db_example.* from '&username'@'%'; -- Removes all privileges from &username
    8.  grant select, insert, delete, update on &database.* to '&username'@'%'; -- Grants some privileges to &username in &database 
-
+-----------------------------------------------------------------------
+create database users; -- Creates the new database
+create user 'users'@'%' identified by 'password';
+grant all on users.* to 'users'@'%';
+revoke all on users.* from 'users'@'%';
+grant select, insert, delete, update on users.* to 'users'@'%';
+-----------------------------------------------------------------------
 - MAPPINGS-
 -- UserController --
     @RequestMapping:    /users
@@ -19,3 +25,9 @@
         @GetMapping:              /{id}
         @PostMapping:             /add
         @PutMapping:              /{id}
+-----------------------------------------------------------------------
+docker network create --driver bridge project
+//docker run -d --network project --name mysql -td -p 3306:3306 -e MYSQL_ROOT_PASSWORD=cmpe172 mysql:8.0
+docker run -d --network project --name dockermysql -td -p 3307:3307 -e MYSQL_ROOT_PASSWORD=cmpe172 mysql:8.0
+docker run --network project -e "MYSQL_HOST=dockermysql" --name users-api -td -p 8080:8080 users
+-----------------------------------------------------------------------

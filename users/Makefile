@@ -25,7 +25,7 @@ mysql:
 mysql-shell:
 	docker exec -it mysql bash
 api:
-	docker run -d --name users-api --network kong-network -td users
+	docker run -d --name users-api --network bridge -td users
 # Docker
 
 docker-build: jar
@@ -34,6 +34,10 @@ docker-build: jar
 
 users-network:
 	docker network create --driver bridge users
+
+docker-api: docker-build
+	docker run --name users -td -p 80:8080 users
+	docker ps
 
 docker-run: docker-build
 	docker run --network users -e "MYSQL_HOST=mysql" --name users -td -p 8080:8080 users

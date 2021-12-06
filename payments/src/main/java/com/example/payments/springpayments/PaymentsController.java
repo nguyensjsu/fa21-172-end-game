@@ -3,18 +3,9 @@ package com.example.payments.springpayments;
 import javax.validation.Valid;
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
-import java.util.Optional;
-import java.time.*; 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.Base64.Encoder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,14 +30,19 @@ import org.springframework.beans.factory.annotation.Value;
 @RequestMapping("/")
 public class PaymentsController {  
     
+    private static boolean DEBUG = true;
+    private CyberSourceAPI api = new CyberSourceAPI();
+
     @Value("${cybersource.apihost}") private String apiHost;
     @Value("${cybersource.merchantkeyid}") private String merchantKeyId;
     @Value("${cybersource.merchantsecretkey}") private String merchantsecretKey;
     @Value("${cybersource.merchantid}") private String merchantId;
 
-    private CyberSourceAPI api = new CyberSourceAPI();
 
-    private static Map<String, String> months = new HashMap<>();
+    private RabbitMQSender mySender;
+
+    // Creates a HashMap of the 12 months
+    private static final Map<String, String> months = new HashMap<>();
     static 
     {
         months.put("January", "01");
@@ -62,8 +58,8 @@ public class PaymentsController {
         months.put("November", "11");
         months.put("December", "12");
     }
-
-    private static Map<String,String> states = new HashMap<>();
+    // Creates a HashMap of the 50 states
+    private static final Map<String,String> states = new HashMap<>();
     static
     {
         states.put("AK", "Alaska");
@@ -122,6 +118,11 @@ public class PaymentsController {
     @Autowired
     private PaymentsCommandRepository repository;
 
+    PaymentsController(PaymentsCommandRepository repository){
+        this.repository = repository;
+    }
+    
+    @Getter
     @Setter
     class Message 
     {
@@ -167,12 +168,6 @@ public class PaymentsController {
     
         log.info( "Action: " + action ) ;
         log.info( "Command: " + command ) ;
-                                
-        CyberSourceAPI.setHost(apiHost);
-        CyberSourceAPI.setKey(merchantKeyId);
-        CyberSourceAPI.setSecret(merchantsecretKey);
-        CyberSourceAPI.setMerchant(merchantId);
-        CyberSourceAPI.debugConfig();
 
         ErrorMessages msgs = new ErrorMessages();
                             
@@ -288,6 +283,12 @@ public class PaymentsController {
             model.addAttribute("messages", msgs.getMessages());
             return "creditcards";
         }
+
+        CyberSourceAPI.setHost(apiHost);
+        CyberSourceAPI.setKey(merchantKeyId);
+        CyberSourceAPI.setSecret(merchantsecretKey);
+        CyberSourceAPI.setMerchant(merchantId);
+        CyberSourceAPI.debugConfig();
 
         int min = 1234567;
         int max = 9876543;
