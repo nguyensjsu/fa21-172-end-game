@@ -22,3 +22,5 @@ Organized the application and updated journal
 <h3>Anthony Nguyen</h3>
 
 Created Sign Up Page working with REST API, created Log In Page working with REST API, Still need to work on authentication, Created the front end aspect of the catalog page
+
+Created the change password function
