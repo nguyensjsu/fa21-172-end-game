@@ -1,13 +1,9 @@
 package com.example.users;
 
-import java.rmi.ServerException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.HashSet;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 //import org.springframework.web.server.ResponseStatusException;
 //import javax.servlet.http.HttpServletResponse;
@@ -76,8 +69,9 @@ public class UserController
         return repository.save(newUser);
     }
     
+    /*
     // User login validation
-    @GetMapping("/")
+    @GetMapping("/auth")
     String getUser(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) throws ServerException{
         User user = repository.findByUserName(userName);
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -93,7 +87,7 @@ public class UserController
         }
         return responseHeaders.toString();
     }
-
+    */
 
     // Login a user
     @PostMapping("/login")
