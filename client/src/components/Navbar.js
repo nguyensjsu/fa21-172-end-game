@@ -8,6 +8,7 @@ const Navbar = () => {
           <Link to="#"> D0N8</Link>
         </h1>
         <ul>
+          <li><Link to="/changepass">Change Password</Link></li>
           <li><Link to="/register">Register</Link></li>
           <li><Link to="/login">Login</Link></li>
         </ul>

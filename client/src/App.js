@@ -5,7 +5,7 @@ import Catalog from './components/Catalog';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
-
+import ChangePass from './components/ChangePass';
 
 const App = () => 
 (
@@ -15,6 +15,7 @@ const App = () =>
       <section className="container">
         <Routes>
           <Route exact path="/" element={<Register/>}/>
+          <Route exact path="/changepass" element={<ChangePass/>}/>
           <Route exact path="/register" element={<Register/>}/>
           <Route exact path="/login" element={<Login/>}/>
           <Route exact path="/catalog" element={<Catalog/>}/>

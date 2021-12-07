@@ -104,20 +104,13 @@ public class UserController
     }
 
     // Update a user, Reset Password implementation(?)
-    @PutMapping("/{id}")
-    User replaceUser(@RequestBody User newUser, @PathVariable Long id) 
+    @PutMapping("/changepass")
+    User replaceUserPassword(@RequestBody User newUser) 
     {
-        
-        return repository.findById(id).map(user -> {
-            user.setEmail(newUser.getEmail());
-            user.setPassword(newUser.getPassword());
-            user.setUserName(newUser.getUserName());
-            return repository.save(user);
-        })
-        .orElseGet(() -> {
-            newUser.setId(id);
-            return repository.save(newUser);
-        });
+        User pass = repository.findByUserName(newUser.getUserName());
+            
+        pass.setPassword(newUser.getPassword());
+        return repository.save(pass);
     }
 
     // Delete user
