@@ -33,7 +33,6 @@ const Register = () => {
             const body = JSON.stringify(newUser);
 
             const res = await axios.post('http://localhost:8080/users/add', body, config);
-            //console.log(res.data);
         }
         catch(err)
         {
