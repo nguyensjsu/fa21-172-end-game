@@ -8,16 +8,27 @@ Contacted teammates in order to establish group and create a design for the proj
 <h3>Anthony Nguyen</h3>
 Set up repository, Implemented Spring payments and Cybersource
 
+<img width="843" alt="Screen Shot 2021-12-06 at 8 59 56 PM" src="https://user-images.githubusercontent.com/54492419/144969314-dd7ea740-2fd4-439e-8eac-beb2493544cc.png">
+
 <h2>Week 3</h2>
 
 <h3>Anthony Nguyen</h3>
 Implemented Users, Orders, and set up client frontend
 
-Set up REST APIs
+<img width="247" alt="Screen Shot 2021-12-06 at 8 58 32 PM" src="https://user-images.githubusercontent.com/54492419/144969198-7fec040f-1d82-437e-8897-d7d21e2466cd.png">
+
+
+Set up some REST APIs for Users
+
+<img width="518" alt="Screen Shot 2021-12-06 at 8 59 21 PM" src="https://user-images.githubusercontent.com/54492419/144969270-edd6e48b-9f81-4813-b6b5-1f2f3d09c87a.png">
+
 
 Transformed Monolithic architecture into Microservice architecture
 
 Organized the application and updated journal
+
+<img width="936" alt="Screen Shot 2021-12-06 at 8 57 57 PM" src="https://user-images.githubusercontent.com/54492419/144969149-669ba3a7-90d3-4b9c-9da9-3d92f1c73598.png">
+
 
 <h2>Week 4</h2>
 
