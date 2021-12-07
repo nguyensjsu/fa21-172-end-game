@@ -15,6 +15,8 @@ Implemented Users, Orders, and set up client frontend
 
 Set up REST APIs
 
+Transformed Monolithic architecture into Microservice architecture
+
 Organized the application and updated journal
 
 <h2>Week 4</h2>
