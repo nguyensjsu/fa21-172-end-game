@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spring-starbucks-api-deployment
+  name: spring-donations-api-deployment
   namespace: default
 spec:
   selector:
     matchLabels:
-      name: spring-starbucks-api
+      name: spring-donations-api
   replicas: 2 # tells deployment to run 2 pods matching the template
   template: # create pods using pod definition in this template
     metadata:
       # unlike pod.yaml, the name is not included in the meta data as a unique name is
       # generated from the deployment name
       labels:
-        name: spring-starbucks-api
+        name: spring-donations-api
     spec:
       containers:
-      - name: spring-starbucks-api
-        image: paulnguyen/spring-starbucks-api:v2.0 
+      - name: spring-donations-api
+        image: sjsualeinbartolome/spring-donations-api:v1.0 
         ports:
         - containerPort: 8080
-

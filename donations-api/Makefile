@@ -3,31 +3,31 @@ all: clean
 setup:
 	docker network create --driver bridge kong-network
 	docker network inspect kong-network
-	docker run -d --name spring-starbucks-api --network kong-network -td starbucks-api
+	docker run -d --name spring-donations-api --network kong-network -td donations-api
 clean:
 	docker stop kong
 	docker rm kong 
 	docker stop kong-database
 	docker rm kong-database
-	docker stop starbucks-api
-	docker rm starbucks-api
+	docker stop donations-api
+	docker rm donations-api
 
 docker-shell:
-	docker exec -it starbucks bash 
+	docker exec -it donations bash 
 
 jar: 
 	gradle build -x test
 	gradle bootJar
 
 docker-build: jar
-	docker build -t starbucks-api .
+	docker build -t donations-api .
 	docker images
 
 docker-api:
-	docker run -d --name starbucks-api --network kong-network -td starbucks-api
+	docker run -d --name donations-api --network kong-network -td donations-api
 
 docker-run: docker-build #Local build
-	docker run --name spring-starbucks-api -td -p 80:8080 starbucks-api	
+	docker run --name spring-donations-api -td -p 80:8080 donations-api	
 	docker ps
 
 kong-shell:
@@ -42,8 +42,8 @@ network-inspect:
 network-prune:
 	docker network prune
 
-starbucks-api:	
-	docker run -d --name starbucks-api --network kong-network -td starbucks-api
+donations-api:	
+	docker run -d --name donations-api --network kong-network -td donations-api
 
 jumpbox:
 	docker run --name jumpbox --network kong-network -td ubuntu
@@ -148,3 +148,8 @@ gke-jumpbox-tools:
 	apt-get update
 	apt-get install curl
 	apt-get install iputils-ping
+
+aleindeploy:
+	docker login
+	docker build -t sjsualeinbartolome/spring-donations-api:v1.0 -t sjsualeinbartolome/spring-donations-api:v1.0 .
+	docker push sjsualeinbartolome/spring-donations-api:v1.0
