@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.security.authentication.AuthenticationManager;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-
 
 //import org.springframework.web.server.ResponseStatusException;
 //import javax.servlet.http.HttpServletResponse;
@@ -70,9 +67,10 @@ public class UserController
     {
         return repository.save(newUser);
     }
+    
     /*
     // User login validation
-    @GetMapping("/login/validate")
+    @GetMapping("/auth")
     String getUser(@RequestParam(value = "userName") String userName, @RequestParam(value = "password") String password) throws ServerException{
         User user = repository.findByUserName(userName);
         HttpHeaders responseHeaders = new HttpHeaders();
