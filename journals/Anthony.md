@@ -23,6 +23,8 @@ Organized the application and updated journal
 
 Created Sign Up Page working with REST API, created Log In Page working with REST API, Still need to work on authentication, Created the front end aspect of the catalog page
 
+<img width="351" alt="Screen Shot 2021-12-06 at 8 54 23 PM" src="https://user-images.githubusercontent.com/54492419/144968917-2b382400-ed0f-43c6-915a-8677fe303896.png">
+
 Created the change password function
 
 <img width="1536" alt="Screen Shot 2021-12-06 at 8 47 24 PM" src="https://user-images.githubusercontent.com/54492419/144968134-5974acbf-8924-43c6-b5d1-4fd0b2cd587f.png">
