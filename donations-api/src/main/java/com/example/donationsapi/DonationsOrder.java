@@ -19,9 +19,11 @@ import lombok.RequiredArgsConstructor;
 public class DonationsOrder {
     private @Id @GeneratedValue Long id;
     
-    @Column(nullable=false)     private String drink;
-    @Column(nullable=false)     private String milk;
-    @Column(nullable=false)     private String size;
+    // Replaced drink with tiers, removed milk
+    @Column(nullable=false)     private String tier;
+    @Column(nullable=false)     private String charity;
     @Column(nullable=false)     private double total;
                                 private String status;
+
+    // Use Lombok to generate getters and setters
 }

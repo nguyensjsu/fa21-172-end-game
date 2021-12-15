@@ -55,12 +55,12 @@ public class DonationsOrderController {
     }
 
     //Create a new donation order
-    @PostMapping("/order/register/{regid")
+    @PostMapping("/order/register/{regid}")
     @ResponseStatus(HttpStatus.CREATED)
     DonationsOrder newOrder(@PathVariable String regid, @RequestBody DonationsOrder order){
         System.out.println("Placing Order (Reg ID = " + regid + " ) => " + order);
         // check input
-        if(order.getDrink().equals("") || order.getMilk().equals("") || order.getSize().equals("")){
+        if(order.getCharity().equals("")){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Order Request!");
         }
         // check for active order
@@ -72,100 +72,74 @@ public class DonationsOrderController {
 
             }
         }
-        // set price
+        // set price, replaced drink with charity and size with tier
         double price = 0.0;
-        switch(order.getDrink()){
-        case "Caffe Latte":
-            switch(order.getSize()){
-            case "Tall":
-            price = 2.95;
-            break;
-            case "Grande":
-                price = 3.65;
+        switch(order.getCharity()){
+        case "Team Trees":
+            switch(order.getTier()){
+            case "1":
+                price = 2;
                 break;
-            case "Venti":
-            case "Your Own Cup":
-                price = 3.95;
+            case "2":
+                price = 5;
                 break;
-            default:
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Size!");
-            }
-            break;
-        case "Caffe Americano":
-            switch(order.getSize()){
-            case "Tall":
-            price = 2.25;
-            break;
-            case "Grande":
-                price = 2.65;
+            case "3":
+                price = 8;
                 break;
-            case "Venti":
-            case "Your Own Cup":
-                price = 2.95;
+            case "4":
+                price = 15;
                 break;
             default:
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Size!");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Tier!");
             }
             break;
-        case "Caffe Mocha":
-            switch(order.getSize()){
-            case "Tall":
-            price = 3.45;
-            break;
-            case "Grande":
-                price = 4.15;
+        case "Team Seas":
+        switch(order.getTier()){
+            case "1":
+                price = 2;
                 break;
-            case "Venti":
-            case "Your Own Cup":
-                price = 4.45;
+            case "2":
+                price = 5;
                 break;
-            default:
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Size!");
-            }
-            break;
-        case "Espresso":
-            switch(order.getSize()){
-            case "Short":
-            price = 1.75;
-            break;
-            case "Tall":
-                price = 1.95;
-                break;  
-            default:
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Size!");
-            }
-            break;    
-        
-        case "Cappuccino":
-            switch(order.getSize()){
-            case "Tall":
-            price = 2.95;
-            break;
-            case "Grande":
-                price = 3.65;
+            case "3":
+                price = 8;
                 break;
-            case "Venti":
-            case "Your Own Cup":
-                price = 3.95;
+            case "4":
+                price = 15;
                 break;
             default:
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Size!");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Tier!");
             }
             break;
+        case "Team Bees":
+            switch(order.getTier()){
+            case "1":
+                price = 2;
+                break;
+            case "2":
+                price = 5;
+                break;
+            case "3":
+                price = 8;
+                break;
+            case "4":
+                price = 15;
+                break;
+            default:
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Tier!");
+            }
+            break;  
         default:
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Drink!");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Charity!");
         }
-        double tax = 0.0725;
-        double total = price + (price * tax);
-        double scale = Math.pow(10, 2);
-        double rounded = Math.round(total * scale);
-        order.setTotal(rounded);
+        order.setTotal(price);
         // save order
         order.setStatus("Ready for Payment.");
         DonationsOrder newOrder = repository.save(order);
         orders.put(regid, newOrder);
         return newOrder;
     }
+
     // Get details of Starbucks card
     @GetMapping("/order/register/{regid}")
     DonationsOrder getActiveOrder(@PathVariable String regid, HttpServletResponse response){
@@ -177,6 +151,7 @@ public class DonationsOrderController {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Order Not Found!");
         }
     }
+
     // Clear active order
     @DeleteMapping("/order/register/{regid}")
     Message deleteActiveOrder(@PathVariable String regid){
