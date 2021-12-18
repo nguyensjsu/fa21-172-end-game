@@ -1,9 +1,9 @@
 _format_version: "1.1"
 
 services:
-- name: users
+- name: spring-users
   protocol: http
-  host: users
+  host: spring-users
   port: 8080
   path: /
   plugins:

@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-payments
+  namespace: default
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /payments
+        pathType: Prefix
+        backend:
+          service:
+            name: spring-payments-service
+            port:
+              number: 80
+#apiVersion: extensions/v1beta1
+#kind: Ingress
+#metadata:
+#  name: spring-payments
+#  annotations:
+#    kubernetes.io/ingress.class: kong
+#spec:
+#  rules:
+#  - http:
+#      paths:
+#      - path: /api
+#        backend:
+#          serviceName: spring-payments-service
+#          servicePort: 80              

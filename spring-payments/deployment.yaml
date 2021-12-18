@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-payments-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      name: spring-payments
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      # unlike pod.yaml, the name is not included in the meta data as a unique name is
+      # generated from the deployment name
+      labels:
+        name: spring-payments
+    spec:
+      containers:
+      - name: spring-payments-api
+        image: sjsualeinbartolome/spring-payments:v4.0
+        env:
+        - name: MYSQL_HOST
+          value: "10.76.80.5" #change value to MySQL on GCP
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spring-users
+  namespace: default
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: /users
+        pathType: Prefix
+        backend:
+          service:
+            name: spring-users-service
+            port:
+              number: 80
+#apiVersion: extensions/v1beta1
+#kind: Ingress
+#metadata:
+#  name: spring-users
+#  annotations:
+#    kubernetes.io/ingress.class: kong
+#spec:
+#  rules:
+#  - http:
+#      paths:
+#      - path: /api
+#        backend:
+#          serviceName: spring-users-service
+#          servicePort: 80              

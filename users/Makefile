@@ -25,18 +25,18 @@ mysql:
 mysql-shell:
 	docker exec -it mysql bash
 api:
-	docker run -d --name users-api --network gumball -td users
+	docker run -d --name users-api --network gumball -td spring-users
 # Docker
 
 docker-build: jar
-	docker build -t users .
+	docker build -t spring-users .
 	docker images
 
 users-network:
 	docker network create --driver bridge users
 
 docker-api: docker-build
-	docker run --name users -td -p 80:8080 users
+	docker run --name spring-users -td -p 80:8080 spring-users
 	docker ps
 
 docker-run: docker-build
@@ -52,8 +52,8 @@ docker-shell:
 
 docker-push:
 	docker login
-	docker build -t $(account)/users:v1 -t $(account)/users:v1 .
-	docker push $(account)/users:v1 
+	docker build -t $(account)/spring-users:v3 -t $(account)/spring-users:v3 .
+	docker push $(account)/spring-users:v3
 
 # Compose
 

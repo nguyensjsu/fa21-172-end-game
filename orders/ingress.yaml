@@ -1,9 +1,0 @@
-apiVersion: "extensions/v1beta1"
-kind: "Ingress"
-metadata:
-  name: "orders-ingress"
-  namespace: "default"
-spec:
-  backend:
-    serviceName: "orders-service"
-    servicePort: 8080

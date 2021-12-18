@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: spring-users-deployment
   namespace: default
 spec:
   selector:
     matchLabels:
-      name: users
+      name: spring-users
   replicas: 4 # tells deployment to run 2 pods matching the template
   template: # create pods using pod definition in this template
     metadata:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: users
-        image: sjsualeinbartolome/users:v1
+        image: sjsualeinbartolome/spring-users:v2
         env:
         - name: MYSQL_HOST
           value: "10.76.80.5"
