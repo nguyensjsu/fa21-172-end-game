@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: users-deployment
@@ -17,6 +17,9 @@ spec:
     spec:
       containers:
       - name: users
-        image: anthonynguyenthanh/users:v1
+        image: sjsualeinbartolome/users:v1
+        env:
+        - name: MYSQL_HOST
+          value: "10.76.80.5"
         ports:
         - containerPort: 8080

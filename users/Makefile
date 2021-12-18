@@ -25,7 +25,7 @@ mysql:
 mysql-shell:
 	docker exec -it mysql bash
 api:
-	docker run -d --name users-api --network bridge -td users
+	docker run -d --name users-api --network gumball -td users
 # Docker
 
 docker-build: jar

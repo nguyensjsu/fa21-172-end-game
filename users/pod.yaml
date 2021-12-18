@@ -7,7 +7,7 @@ metadata:
     name: users
 spec:
   containers:
-    - image: anthonynguyenthanh/users:v1
+    - image: sjsualeinbartolome/users:v1
       name: users
       ports:
         - containerPort: 8080
